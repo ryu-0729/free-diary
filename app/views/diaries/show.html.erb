@@ -20,6 +20,15 @@
               更新日：<%= @diary.updated_at.strftime("%Y-%m-%d") %>
             </small>
           </p>
+          <% if current_user.already_favorited?(@diary) %>
+            <%= link_to diary_favorites_path(@diary), method: :delete do %>
+              <i class="fas fa-heart"></i>
+            <% end %>
+          <% else %>
+            <%= link_to diary_favorites_path(@diary), method: :post do %>
+              <i class="far fa-heart"></i>
+            <% end %>
+          <% end %>
           <%= link_to "編集", edit_diary_path, class: "btn btn-primary mr-3" %>
           <%= link_to "削除", @diary_path, method: :delete,
               data: { confirm: "#{@diary.title}を削除しますか？" },

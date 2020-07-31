@@ -8,4 +8,11 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
 
   has_many :diaries, dependent: :destroy
+
+  has_many :favorites, dependent: :destroy
+  has_many :favorites_diaries, through: :favorites, source: :diary
+
+  def already_favorited?(diary)
+    self.favorites.exists?(diary_id: diary.id)
+  end
 end

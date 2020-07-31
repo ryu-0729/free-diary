@@ -6,6 +6,8 @@ class Diary < ApplicationRecord
 
   belongs_to :user
 
+  has_many :favorites, dependent: :destroy
+
   def thumbnail
     return self.image.variant(resize: '300x300').processed
   end
