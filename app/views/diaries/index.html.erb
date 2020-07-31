@@ -1,0 +1,34 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-6 mx-auto">
+      <% @page_title = "日記一覧" %>
+      <h2><%= @page_title %></h2>
+      <table class="table table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th>タイトル</th>
+            <th>投稿日時</th>
+            <th>LIKE</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @diaries.each do |diary| %>
+            <tr>
+              <td><%=link_to diary.title, diary_path(diary) %></td>
+              <td><%= diary.updated_at.strftime("%Y-%m-%d") %></td>
+              <td>
+              </td>
+              <td><%= link_to "編集", edit_diary_path(diary),
+                    class: "btn btn-primary mr-3" %></td>
+              <td><%= link_to "削除", diary_path(diary), method: :delete,
+                      data: { confirm: "#{diary.title}を削除しますか？"},
+                      class: "btn btn-danger" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-6 mx-auto">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">
+            <%= @diary.title %>
+          </h5>
+          <p class="card-text">
+            <%= @diary.body %>
+          </p>
+
+          <p class="card-text">
+            <small class="text-muted">
+              更新日：<%= @diary.updated_at.strftime("%Y-%m-%d") %>
+            </small>
+          </p>
+          <% end %>
+          <%= link_to "編集", edit_diary_path, class: "btn btn-primary mr-3" %>
+          <%= link_to "削除", @diary_path, method: :delete,
+              data: { confirm: "#{@diary.title}を削除しますか？" },
+              class: "btn btn-danger" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

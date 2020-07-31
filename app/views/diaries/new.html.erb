@@ -1,0 +1,10 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-6 mx-auto">
+      <% @page_title = "新規投稿" %>
+      <h2><%= @page_title %></h2>
+      <%= render "errors", diary: @diary %>
+      <%= render "form", diary: @diary %>
+    </div>
+  </div>
+</div>
