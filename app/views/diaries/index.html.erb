@@ -3,10 +3,23 @@
     <div class="col-6 mx-auto">
       <% @page_title = "日記一覧" %>
       <h2><%= @page_title %></h2>
+      <%= search_form_for @q do |f| %>
+        <div class="form-group">
+          <%= f.label :title_cont, "名称" %>
+          <%= f.search_field :title_cont, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :created_at_gteq, "登録日時" %>
+          <%= f.search_field :created_at_gteq, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.submit "検索", class: "btn btn-outline-primary" %>
+        </div>
+      <% end %>
       <table class="table table-hover">
         <thead class="thead-dark">
           <tr>
-            <th>タイトル</th>
+            <th><%= sort_link(@q, :title, "タイトル") %></th>
             <th>投稿日時</th>
             <th>LIKE</th>
             <th></th>

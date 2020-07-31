@@ -2,7 +2,8 @@ class DiariesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @diaries = Diary.all
+    @q = current_user.diaries.ransack(params[:q])
+    @diaries = @q.result(distinct: true)
   end
 
   def show
