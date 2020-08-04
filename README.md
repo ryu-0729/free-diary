@@ -1,6 +1,7 @@
 # 概要
 
 日々の日常を日記としての投稿やメモとしても使えるアプリケーションです<br>
+https://free-diary2.herokuapp.com/<br>
 test@gmail.com パスワードがbaseballでテストユーザーとしてログインできます。
 
 # 機能一覧
