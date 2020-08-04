@@ -1,7 +1,6 @@
 # 概要
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+日々の日常を日記としての投稿やメモとしても使えるアプリケーションです
 
 Things you may want to cover:
 
